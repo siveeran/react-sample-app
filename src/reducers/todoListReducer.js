@@ -1,18 +1,24 @@
 let defaultState = [
     {
+        id: 1,
         name: 'First Item',
         description: 'First item description...',
-        isDone: false
+        isDone: false,
+        isActive: true
     },
     {
+        id: 2,
         name: 'Second Item',
         description: 'Second item description...',
-        isDone: true
+        isDone: true,
+        isActive: false
     },
     {
+        id: 3,
         name: 'Third Item',
         description: 'Third item description...',
-        isDone: false
+        isDone: false,
+        isActive: false
     }
 ];
 

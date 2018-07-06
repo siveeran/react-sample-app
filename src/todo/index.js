@@ -1,22 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import TodoListItem from './views/todoListItem.js';
-import { SIGBUS } from 'constants';
+import TodoListItemDetails from './views/todoListItemDetails';
+import { Route } from 'react-router-dom';
 
 class TodoList extends Component{
     render(){
         let { list } = this.props;
         let todoItems = list.map((item, index) => (
-            <TodoListItem item={item} key={index} />
+            <TodoListItem item={item} ind={index} key={index} />
         ));
+
         return(
             <div>
-                <h2>Todos List:</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, illo.</p>
-                <ul>
-                    {todoItems}
-                </ul>
+                <section className="sidebar">
+                    <ul>
+                        {todoItems}
+                    </ul>
+                </section>
+                <section className="content-main">
+                    <Route path={`/list/:itemId?`} component={TodoListItemDetails} />
+                </section>
             </div>
         )
     }
@@ -26,9 +30,5 @@ function mapStateToTodoListProps(storeState) {
     let todos = storeState.todoListData;
     return { list: todos };
 }
-function mapDispatchToTodoListProps(dispatch) {
-    let actions = {};
-    return bindActionCreators(actions, dispatch);
-}
 
-export default connect(mapStateToTodoListProps, mapDispatchToTodoListProps)(TodoList);
+export default connect(mapStateToTodoListProps)(TodoList);
