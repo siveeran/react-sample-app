@@ -20,15 +20,18 @@ let defaultState = [
 ];
 
 const todoListReducer = function(currentState=defaultState, action){
+    if(action.type === 'LOAD'){
+        return action.payload;
+    }
     if(action.type === 'ADD'){
-        let newItem = action.payload;
-        newItem.id = currentState.length+1;
-        return [...currentState, newItem];
+        // let newItem = action.payload;
+        // newItem.id = currentState.length+1;
+        return [...currentState, action.payload];
     }
     if(action.type === 'MARK_AS_DONE'){
         let inputItem = action.payload;
         let items = currentState.map((item, index) => {
-            if(!item.isDone && (item.id === inputItem.id)) item = inputItem;
+            if(item.id === inputItem.id) item = inputItem;
             return item;
         });
         return items;
@@ -36,11 +39,12 @@ const todoListReducer = function(currentState=defaultState, action){
     if(action.type === 'MARK_AS_UNDONE'){
         let inputItem = action.payload;
         let items = currentState.map((item, index) => {
-            if(item.isDone && (item.id === inputItem.id)) item = inputItem;
+            if(item.id === inputItem.id) item = inputItem;
             return item;
         });
         return items;
     }
+
     return currentState;
 }
 

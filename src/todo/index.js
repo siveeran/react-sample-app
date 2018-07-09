@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import TodoListItem from './views/todoListItem.js';
 import TodoListItemDetails from './views/todoListItemDetails';
 import { Route } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import todoListActions from './actions';
 
 class TodoList extends Component{
+    componentDidMount(){
+        this.props.load();
+    }
+
     render(){
         let { list } = this.props;
         let todoItems = list.map((item, index) => (
@@ -32,4 +38,8 @@ function mapStateToTodoListProps(storeState) {
     return { list: todos };
 }
 
-export default connect(mapStateToTodoListProps)(TodoList);
+function mapDispatchToTodoListProps(dispatch){
+    return bindActionCreators(todoListActions, dispatch);
+}
+
+export default connect(mapStateToTodoListProps, mapDispatchToTodoListProps)(TodoList);

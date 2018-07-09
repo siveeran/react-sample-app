@@ -1,0 +1,40 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "name": "First Item",
+      "description": "First item description.",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "name": "Second Item",
+      "description": "Second item description.",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "name": "Third Item",
+      "description": "Third item description.",
+      "isDone": true
+    },
+    {
+      "id": 4,
+      "name": "Fourth Item",
+      "description": "Fourth item description.",
+      "isDone": true
+    },
+    {
+      "id": 5,
+      "name": "Fifth Item",
+      "description": "Fifth Item description...",
+      "isDone": false
+    },
+    {
+      "id": 6,
+      "name": "Sixth Item",
+      "description": "Sixth Item description...",
+      "isDone": false
+    }
+  ]
+}
