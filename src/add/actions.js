@@ -8,10 +8,11 @@ function add(itemName){
             description: itemName+' description...',
             isDone: false
         };
-        todoListService
+        return todoListService
         .save(newItem)
         .then((response => {
             dispatch({type:"ADD", payload: response});
+            return response;
         }));
     }
 }

@@ -19,7 +19,7 @@ class TodoList extends Component{
 
         return(
             <div>
-                <h3>List Items:</h3>
+                <h4><strong>List Items:</strong></h4>
                 <section className="sidebar">
                     <ul>
                         {todoItems}
